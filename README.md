@@ -26,7 +26,7 @@ cd <repo-folder>
 - Build the program using:
 command: make
 - Run the executable:
-command: ./game
+command: ./PPA2
 - Controls:
 W / A / S / D → Move
 + / - → Change speed
