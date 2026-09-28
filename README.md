@@ -1,33 +1,47 @@
-# Game-Board-with-Free-Moving-Player-Object
-The Game Board Player Project is a console-based interactive program built in C that simulates a 20×10 game board with a free-moving player object.
-The player can move asynchronously using keyboard controls (W, A, S, D) and wraps around the board edges, creating a smooth, continuous motion effect.
+# Snake Game
 
-# Features
-- 20×10 dynamic game board with customizable ASCII borders and player icon.
-- Real-time movement using W, A, S, D keys for directional control.
-- Smooth wraparound motion when reaching screen edges.
-- Adjustable speed settings for different gameplay levels.
-- Instant response input without interrupting gameplay.
-- Simple exit command (Space key) to safely end the program.
+## Game Overview
 
-# Concepts & Skills Demonstrated
-- Implemented Finite State Machine using enum for smooth directional control.
-- Used structs to store player position and symbol efficiently.
-- Applied asynchronous input handling with MacUILib for real-time movement.
-- Built dynamic board rendering and wraparound logic using nested loops.
-- Added adjustable speed control with array-based delay management.
-- Debugged efficiently in VS Code using breakpoints and live variable tracking.
+This is a terminal-based Snake game written in C++. The player steers a snake around a 30-by-15 board, collects food to increase the score, and tries to grow as long as possible without running into the snake's own body.
 
-# How to Run
-- Clone the repository:
-git clone <repo-link>
-cd <repo-folder>
-- Open the folder in VS Code.
-- Build the program using:
-command: make
-- Run the executable:
-command: ./PPA2
-- Controls:
-W / A / S / D → Move
-+ / - → Change speed
-Space → Exit
+## Requirements
+
+- macOS with the Xcode Command Line Tools installed
+- `g++`, `make`, and the `ncurses` library
+
+## Build and Run
+
+Open a terminal in this project folder and run:
+
+```sh
+make clean
+make
+./Project
+```
+
+The game runs in the terminal. Press `Esc` to quit. If the shutdown prompt appears, press Enter.
+
+## Controls
+
+- `W`: move up
+- `A`: move left
+- `S`: move down
+- `D`: move right
+- `Esc`: quit
+
+The snake starts moving after the first direction key is pressed. It cannot immediately reverse into the opposite direction.
+
+## Rules
+
+- The board has five food items: four regular foods (`f`) and one super food (`F`).
+- Eating regular food adds 1 point and grows the snake.
+- Eating super food adds 10 points and does not grow the snake.
+- Eaten food reappears at a new, unoccupied location.
+- The snake wraps around the board when it reaches an edge.
+- Running into the snake's own body ends the game.
+- The game is won when the snake reaches the board's win-length threshold.
+
+## Contributors
+
+- Anushka Chauhan
+- Andrew Honoris
