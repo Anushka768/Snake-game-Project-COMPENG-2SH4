@@ -4,6 +4,18 @@
 
 This is a terminal-based Snake game written in C++. The player steers a snake around a 30-by-15 board, collects food to increase the score, and tries to grow as long as possible without running into the snake's own body.
 
+## Object-Oriented Design & Data Structures
+
+The game separates responsibilities across classes:
+
+- **`GameMechs`** stores board dimensions, keyboard input, score, and exit/win/loss flags.
+- **`Player`** manages the snake body and direction, updates movement, prevents immediate reversal, handles edge wrapping, and detects self-collisions.
+- **`Food` and `supFood`** demonstrate inheritance and runtime polymorphism. `supFood` derives from `Food` and overrides virtual food-generation, regeneration, and scoring methods. The game stores both types through `Food*` pointers, allowing the appropriate behaviour to be selected at runtime.
+- **`objPos`** represents a board position and display symbol. It implements a destructor, deep-copy constructor, and copy-assignment operator for its heap-allocated position data.
+- **`objPosArrayList`** is a custom array-backed list used for snake segments and food positions. It supports head/tail insertion and removal, indexed access, and position updates. Its backing array is allocated on the heap with a capacity selected at construction; the list does not automatically resize.
+
+The project demonstrates encapsulation, inheritance, virtual functions, pointers, manual memory management, deep copying, and custom data-structure operations. The main loop separates input handling, game logic, rendering, and timing.
+
 ## Requirements
 
 - macOS with the Xcode Command Line Tools installed
